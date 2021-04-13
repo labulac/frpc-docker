@@ -65,7 +65,7 @@ jobs:
     - name: 登录 DockerHub
       uses: docker/login-action@v1
       with:
-        username: danxiaonuo
+        username: 740162752
         password: ${{ secrets.DOCKER_PASSWORD }}
   
     - name: 构建镜像并发布
@@ -75,16 +75,4 @@ jobs:
         file: ./Dockerfile
         platforms: linux/amd64
         push: true
-        tags: danxiaonuo/frpc-docker:${{ matrix.DOCKER_TAG }}
-      
-    - name: 上传至阿里云
-      id: buildAndPushImage
-      uses: risfeng/docker-image-build-push-action@v1.0
-      with:
-        registry_url: 'registry.cn-hongkong.aliyuncs.com'
-        namespaces: 'danxiaonuo'
-        repository_name: 'frpc-docker'
-        user_name: ${{ secrets.ALIYUN_USERNAME }}
-        password: ${{ secrets.ALIYUN_PASSWORD }}
-        image_version: ${{ matrix.DOCKER_TAG }}
-        docker_file: '.'
+        tags: 740162752/frpc-docker:${{ matrix.DOCKER_TAG }}
